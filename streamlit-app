@@ -1,0 +1,21 @@
+import streamlit as st
+
+# Set page title
+st.title("Contact Us")
+
+# Description
+st.write("Fill in the form below to get in touch with us.")
+
+# Contact Form
+with st.form(key="contact_form"):
+    name = st.text_input("Your Name")
+    email = st.text_input("Your Email")
+    message = st.text_area("Your Message")
+
+    submit_button = st.form_submit_button("Submit")
+
+    if submit_button:
+        if name and email and message:
+            st.success(f"Thank you, {name}! We have received your message.")
+        else:
+            st.warning("Please fill out all fields before submitting.")
